@@ -1,0 +1,63 @@
+So question is:
+
+Protego has been contracted to do a network infrastructure test as part of a broader penetration testing engagement. What will you be targeting in this test? (Choose three.)
+
+AAA servers
+
+IPS devices
+
+virtual machines (VM) that are running in the cloud
+
+the digital storefront
+
+switches
+
+So under a network test we test AAA servers, IPS devices, and switches. What are these?
+AAA servers: (Authentication, Authorization, Accounting)
+Authentication: This part of the system will check my "IDs"...like my username, password, fingerprints, ip, maybe mac adress, everything which can identify the user, thats its really me...
+Authorization: This will check what can i do, what are my privileges....am i an administrator, or a ceo, or just a simple user.
+Accounting:This system will record everything what i did after i joined to the network. Like i deleted smthing, copied smthing...etc.
+
+There is 2 main protocolls:
+RADIUS and TACACS+. 
+Radius (Remote Authentication Dial-In User Service) is the mainly used, we use it for wifi, VPN, etc. 
+TACACS+ (Terminal Access Controller Access-Control System Plus) is created by Cisco, it more secure then radius, it hashes the whole communication, not just the password, and its separates the authentication from the authorization.
+These are the "brains" of the whole network, if a hacker once break in, he can acces to anything what is on the network (routers, switches...anything)
+
+IPS services:
+Intrusion Prevention System...it is a system which monitoring the network 24/7. It detects if something not normal happening, recording it, and tries to stop it automatically.
+Its checking every packets on the network, and if an attacker trying to break in, it is automatically disconnecting the attacker, deleting the malicious packets and putting the attacker's ip on a tiltlist.
+2 types: NIPS and HIPS. Nips is a network based IPS, hips is a host based IPS. Network based is checking the whole network, host based is only checking one computer or server.
+These are the servers whose are vulnerale to ddos attacks...too much packets can freeze the detecting system...
+
+Solution is AAA, IPS, switches.
+
+Penetration testing methods:
+Pre-engagement Interactions
+Intelligence Gathering
+Threat Modeling
+Vulnerability Analysis
+Exploitation
+Post Exploitation
+Reporting
+
+another one (ISSAF):
+Information gathering
+Network mapping
+Vulnerability identification
+Penetration
+Gaining access and privilege escalation
+Enumerating further
+Compromising remote users/sites
+Maintaining access
+Covering the tracks
+
+PCI DSS
+The Payment Card Industry Data Security Standard (PCI DSS) regulation aims to secure the processing of credit card payments and other types of digital payments.
+HIPAA:
+The original intent of the Health Insurance Portability and Accountability Act of 1996 (HIPAA) regulation was to simplify and standardize healthcare administrative processes. 
+Administrative simplification called for the transition from paper records and transactions to electronic records and transactions. 
+The U.S. Department of Health and Human Services (HHS) was instructed to develop and publish standards to protect an individual’s electronic health information while permitting appropriate access and use of that 
+information by healthcare providers and other entities.
+FedRAMP
+The U.S. federal government uses the Federal Risk and Authorization Management Program (FedRAMP) standard to authorize the use of cloud service offerings. 
