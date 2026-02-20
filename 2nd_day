@@ -100,7 +100,8 @@ every time you perform work for a customer. MSAs are especially beneficial when 
 in other areas of the company or to verify that the security posture of the organization has been improved as a result of prior testing and remediation.
 
 Non-disclosure agreement (NDA)
-An NDA is a legal document and contract between you and an organization that has hired you as a penetration tester. An NDA specifies and defines confidential material, knowledge, and information that should not be disclosed and that should be kept confidential by both parties. NDAs can be classified as any of the following:
+An NDA is a legal document and contract between you and an organization that has hired you as a penetration tester. An NDA specifies and defines confidential material, knowledge, and information that 
+should not be disclosed and that should be kept confidential by both parties. NDAs can be classified as any of the following:
   -Unilateral: With a unilateral NDA, only one party discloses certain information to the other party, and the information must be kept protected and not disclosed. 
    For example, an organization that hires you should include in an NDA certain information that you should not disclose. Of course, all of your findings must be kept secret and should not be 
    disclosed to any other organization or individual.
