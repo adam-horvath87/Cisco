@@ -29,3 +29,146 @@ Business associates were initially defined as persons or organizations that perf
 or provide services to, a covered entity. Business associate services include legal, actuarial, accounting, consulting, data aggregation, management, administrative, accreditation, and financial services. 
 Subsequent legislation expanded the definition of a business associate to a person or an entity that creates, receives, maintains, transmits, accesses, or has the potential to access PHI to perform certain 
 functions or activities on behalf of a covered entity.
+
+Acquirer
+Also referred to as an “acquiring bank” or an “acquiring financial institution,” an entity that initiates and maintains relationships with merchants for the acceptance of payment cards.
+
+ASV (approved scanning vendor)
+An organization approved by the PCI SSC to conduct external vulnerability scanning services.
+
+Merchant
+For the purposes of PCI DSS, an entity that accepts payment cards bearing the logos of any of the members of PCI SSC (American Express, Discover, MasterCard, or Visa) as payment for goods and/or services. 
+Note that a merchant that accepts payment cards as payment for goods and/or services can also be a service provider, if the services sold result in storing, processing, or transmitting cardholder data on behalf 
+of other merchants or service providers. For example, an ISP is a merchant that accepts payment cards for monthly service.
+
+PAN (primary account number)
+A payment card number that is up to 19 digits long.
+
+Payment Brand
+Brands such as Visa, MasterCard, Amex, or Discover.
+
+PCI Forensic Investigator (PFI)
+A person trained and certified to investigate and contain information about cybersecurity incidents and breaches involving cardholder data.
+
+Qualified Security Assessor (QSA)
+An individual trained and certified to carry out PCI DSS compliance assessments.
+
+Service Provider
+A business entity that is not a payment brand and that is directly involved in the processing, storage, or transmission of cardholder data. This includes companies that provide services that control or 
+could impact the security of cardholder data, such as managed service providers that provide managed firewalls, intrusion detection and other services, and hosting providers and other entities. 
+Entities such as telecommunications companies that only provide communication links without access to the application layer of the communication link are excluded.
+
+The Luhn algorithm, or Luhn formula, is an industry algorithm used to validate different identification numbers, including credit card numbers, International Mobile Equipment Identity (IMEI) numbers, 
+national provider identifier numbers in the United States, Canadian Social Insurance Numbers, and more. The Luhn algorithm, created by Hans Peter Luhn in 1954, is now in the public domain.
+
+Data Isolation
+Organizations that need to comply with PCI DSS (and other regulations, for that matter) should have a data isolation strategy. Also known as network isolation or network segmentation, 
+the goal is to implement a completely isolated network that includes all systems involved in payment card processing.
+
+Password Management
+Most regulations mandate solid password management strategies. For example, organizations must not use vendor-supplied defaults for system passwords and security parameters. 
+This requirement also extends far beyond its title and enters the realm of configuration management. In addition, most of these regulations mandate specific implementation standards, including password length, 
+password complexity, and session timeout, as well as the use of multifactor authentication.
+
+Key Management
+This is another important element that is also evaluated and mandated by most regulations. A key is a value that specifies what part of the algorithm to apply and in what order, as well as what variables to input. 
+Much as with authentication passwords, it is critical to use a strong key that cannot be discovered and to protect the key from unauthorized access. Protecting the key is generally referred to as key management. 
+
+Service-level agreement (SLA)
+An SLA is a well-documented expectation or constraint related to one or more of the minimum and/or maximum performance measures (such as quality, timeline/timeframe, and cost) of the penetration testing service. 
+You should become familiar with any SLAs that the organization that hired you has provided to its customers.
+
+Confidentiality
+You must discuss and agree on the handling of confidential data. For example, if you are able to find passwords or other sensitive data, do you need to disclose all those passwords or all that sensitive data? 
+Who will have access to the sensitive data? What will be the proper way to communicate and handle such data? Similarly, you must protect sensitive data and delete all records, per your agreement with your client. 
+Your customer could have specific data retention policies that you might also have to be aware of. Every time you finish a penetration testing engagement, you should delete any records from your systems. 
+You do not want your next customer to find sensitive information from another client in any system or communication.
+
+Statement of work (SOW)
+An SOW is a document that specifies the activities to be performed during a penetration testing engagement. It can be used to define some of the following elements:
+Project (penetration testing) timelines, including the report delivery schedule
+The scope of the work to be performed
+The location of the work (geographic location or network location)
+Special technical and nontechnical requirements
+Payment schedule
+Miscellaneous items that may not be part of the main negotiation but that need to be listed and tracked because they could pose problems during the overall engagement
+The SOW can be a standalone document or can be part of a master service agreement (MSA).
+
+Master service agreement (MSA)
+MSAs, which are very popular today, are contracts that can be used to quickly negotiate the work to be performed. When a master agreement is in place, the same terms do not have to be renegotiated 
+every time you perform work for a customer. MSAs are especially beneficial when you perform a penetration test, and you know that you will be rehired on a recurring basis to perform additional tests 
+in other areas of the company or to verify that the security posture of the organization has been improved as a result of prior testing and remediation.
+
+Non-disclosure agreement (NDA)
+An NDA is a legal document and contract between you and an organization that has hired you as a penetration tester. An NDA specifies and defines confidential material, knowledge, and information that should not be disclosed and that should be kept confidential by both parties. NDAs can be classified as any of the following:
+  -Unilateral: With a unilateral NDA, only one party discloses certain information to the other party, and the information must be kept protected and not disclosed. 
+   For example, an organization that hires you should include in an NDA certain information that you should not disclose. Of course, all of your findings must be kept secret and should not be 
+   disclosed to any other organization or individual.
+  -Bilateral: A bilateral NDA is also referred to as a mutual, or two-way, NDA. In a bilateral NDA, both parties share sensitive information with each other, and this information should not be disclosed to any other entity.
+  -Multilateral: This type of NDA involves three or more parties, with at least one of the parties disclosing sensitive information that should not be disclosed to any entity outside the agreement. 
+   Multilateral NDAs are used in the event that an organization external to your customer (business partner, service provider, and so on) should also be engaged in the penetration testing engagement.
+
+Rule of engagement
+      -testing timeline
+      -location of the testing
+      -tim window of the testing
+      -preferred method of communication
+      -security controls that could potentially detect or prevent testing
+      -ip addresses or networks from which testing will originate
+      -types of allowed or disallowed tests
+
+SOAP
+Simple Object Access Protocol (SOAP) project files: SOAP is an API standard that relies on XML and related schemas. XML-based specifications are governed by XML Schema Definition (XSD) documents. 
+Having a good reference of what a specific API supports can be very beneficial for a penetration tester and will accelerate the testing.
+
+Swagger
+Swagger (OpenAPI) documentation is a modern framework of API documentation and development that is now the basis of the OpenAPI Specification (OAS). 
+These documents are used in representational state transfer (REST) APIs. REST is a software architectural style designed to guide development of the architecture for web services (including APIs).
+REST, or “RESTful,” APIs are the most common types of APIs used today. 
+
+WSDL
+Web Services Description Language (WSDL) is an XML-based language that is used to document the functionality of a web service.
+
+GraphQL
+GraphQL is a query language for APIs. It is also a server-side runtime for executing queries using a type system you define for your data.
+
+WADL
+Web Application Description Language (WADL) is an XML-based language for describing web applications. 
+
+Software development kit (SDK) for specific applications
+An SDK, or devkit, is a collection of software development tools that can be used to interact and deploy a software framework, an operating system, or a hardware platform. 
+SDKs can also help pen testers understand certain specialized applications and hardware platforms within the organization being tested.
+
+Source code access
+Some organizations may allow you to obtain access to the source code of applications to be tested.
+
+Examples of application requests
+In most cases, you will be able to reveal context by using web application testing tools such as proxies like the Burp Suite and the OWASP Zed Attack Proxy (ZAP). You will learn more about these tools in Module 6, 
+“Exploiting Application-Based Vulnerabilities,” and Module 10, “Tools and Code Analysis.”
+
+System and network architectural diagrams
+These documents can be very beneficial for penetration testers, and they can be used to document and define what systems are in scope during the testing.
+
+Research codes for ethics
+1. Information stored on the computer should be treated as seriously as written or spoken words.
+2. Respect the privacy of others.
+3. Creation and usage of malware is illegal and must not be practiced.
+4. Should not prevent others from accessing public information.
+5. Overwhelming other’s system with unwanted information is unethical.
+6. Sending inappropriate messages through email or chat is forbidden.
+7. Do no harm with a computer.
+8. Comply with legal standards.
+9. Be trustworthy.
+10. Maintain confidentiality.
+
+main principles:
+1. I will always use a computer in ways that ensure consideration and respect for other humans, including their privacy.
+2. I will not use a computer to harm other people.
+3. I will not use a computer to steal.
+4. I will not snoop around in other people's computer files.
+5. I will not use a computer to lie or distort the truth.
+6. I will not use other people's computer resources without authorization or proper compensation.
+7. I will not interfere with other people's computer work.
+8. I will not copy or use proprietary software for which you have not paid (without permission).
+9. I will not appropriate other people's intellectual output.
+10. I will think about the social consequences of the scripts I am writing or the system you are designing.
