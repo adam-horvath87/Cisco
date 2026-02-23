@@ -1,0 +1,196 @@
+Common active reconnaissance tools and methods include the following:
+
+Host enumeration
+Network enumeration
+User enumeration
+Group enumeration
+Network share enumeration
+Web page enumeration
+Application enumeration
+Service enumeration
+Packet crafting
+
+
+Common passive reconnaissance tools and methods include the following:
+
+Domain enumeration
+Packet inspection
+Open-source intelligence (OSINT)
+Recon-ng
+Eavesdropping
+
+Get to known with recon-ng...
+
+So to start to program type in terminal: recon-ng
+I can create workplaces, from the marketplace i can download modules, use them etc...
+Lets check one of them...:
+type the lines into recon-ng's shell:
+
+marketplace search hackertarget
+
+The result: 
+
+[recon-ng][default] > marketplace search hackertarget
+[*] Searching module index for 'hackertarget'...                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+  +---------------------------------------------------------------------------------+                                                                                                                                                       
+  |               Path               | Version |     Status    |  Updated   | D | K |                                                                                                                                                       
+  +---------------------------------------------------------------------------------+                                                                                                                                                       
+  | recon/domains-hosts/hackertarget | 1.1     | not installed | 2020-05-17 |   |   |                                                                                                                                                       
+  +---------------------------------------------------------------------------------+                                                                                                                                                       
+                                                                                                                                                                                                                                            
+  D = Has dependencies. See info for details.                                                                                                                                                                                               
+  K = Requires keys. See info for details.                                                                                                                                                                                                  
+
+lets make a workspace for our job:
+workspaces create bing
+
+load the module:
+module load hackertarget
+
+lets see the info with 'info'
+
+[recon-ng][bing] > modules load hackertarget
+[recon-ng][bing][hackertarget] > info
+
+      Name: HackerTarget Lookup
+    Author: Michael Henriksen (@michenriksen)
+   Version: 1.1
+
+Description:
+  Uses the HackerTarget.com API to find host names. Updates the 'hosts' table with the results.
+
+Options:
+  Name    Current Value  Required  Description
+  ------  -------------  --------  -----------
+  SOURCE  default        yes       source of input (see 'info' for details)
+
+Source Options:
+  default        SELECT DISTINCT domain FROM domains WHERE domain IS NOT NULL
+  <string>       string representing a single input
+  <path>         path to a file containing a list of inputs
+  query <sql>    database query returning one column of inputs
+
+There is only one option i can change, so lets change it:
+[recon-ng][bing][hackertarget] > options set source hackxor.net
+SOURCE => hackxor.net
+[recon-ng][bing][hackertarget] > 
+
+And with 'info' lets check if it's changed:
+[recon-ng][bing][hackertarget] > info
+
+      Name: HackerTarget Lookup
+    Author: Michael Henriksen (@michenriksen)
+   Version: 1.1
+
+Description:
+  Uses the HackerTarget.com API to find host names. Updates the 'hosts' table with the results.
+
+Options:
+  Name    Current Value  Required  Description
+  ------  -------------  --------  -----------
+  SOURCE  hackxor.net    yes       source of input (see 'info' for details)
+
+Source Options:
+  default        SELECT DISTINCT domain FROM domains WHERE domain IS NOT NULL
+  <string>       string representing a single input
+  <path>         path to a file containing a list of inputs
+  query <sql>    database query returning one column of inputs
+
+So everything is fine, lets run the module with 'run'. It throws our the website's subdomains, which i can organise, with 'show hosts' command:
+[recon-ng][bing][hackertarget] > show hosts
+
+  +-----------------------------------------------------------------------------------------------------------------+
+  | rowid |          host         |   ip_address   | region | country | latitude | longitude | notes |    module    |
+  +-----------------------------------------------------------------------------------------------------------------+
+  | 1     | analytics.hackxor.net | 138.68.117.124 |        |         |          |           |       | hackertarget |
+  | 2     | dreaded.hackxor.net   | 138.68.117.124 |        |         |          |           |       | hackertarget |
+  | 3     | hkrb.hackxor.net      | 138.68.117.124 |        |         |          |           |       | hackertarget |
+  | 4     | hmrc.hackxor.net      | 138.68.117.124 |        |         |          |           |       | hackertarget |
+  | 5     | phonecorp.hackxor.net | 138.68.117.124 |        |         |          |           |       | hackertarget |
+  +-----------------------------------------------------------------------------------------------------------------+
+Lets see another module:
+[recon-ng][bing] > modules load bing_domain_web
+[recon-ng][bing][bing_domain_web] > info
+
+      Name: Bing Hostname Enumerator
+    Author: Tim Tomes (@lanmaster53)
+   Version: 1.1
+
+Description:
+  Harvests hosts from Bing.com by using the 'site' search operator. Updates the 'hosts' table with the
+  results.
+
+Options:
+  Name    Current Value  Required  Description
+  ------  -------------  --------  -----------
+  SOURCE  default        yes       source of input (see 'info' for details)
+
+Source Options:
+  default        SELECT DISTINCT domain FROM domains WHERE domain IS NOT NULL
+  <string>       string representing a single input
+  <path>         path to a file containing a list of inputs
+  query <sql>    database query returning one column of inputs
+
+[recon-ng][bing][bing_domain_web] > 
+So the situation is the same...we have to change the option:
+
+[recon-ng][bing][bing_domain_web] > options set source hackxor.net
+SOURCE => hackxor.net
+[recon-ng][bing][bing_domain_web] > run
+
+-----------
+HACKXOR.NET
+-----------
+[*] URL: https://www.bing.com/search?first=0&q=domain%3Ahackxor.net
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+kali programs from url:
+dig URL
+Dig URL mx --> email servers
+
+dnsrecon -d URL
+
+nslookup URL
+host URL
+nikto -h URL
+feroxbuster --url URL
+tcpdump URL
+whois URL
+
+
+sslscan queries ssl services to determine what cyphers are supported RECON
+ssldump Analyze and decode SSL traffic EXPLOITATION
+sslh Running multiple services on port 443 UTILITY
+sslsplit Enable mitm attacks on SSL encrypted network connections EXPLOITATION
+sslyze Analyze the SSL configuration of a server by connecting to it RECON
+
+
+exiftool analyzing pics
+
+GoogleDorking:
+Filetype: Directs Google to search only within the text of a particular type of file (for example, filetype:xls)
+Inurl: Directs Google to search only within the specified URL of a document (for example, inurl:search-text)
+Link: Directs Google to search within hyperlinks for a specific term (for example, link:www.domain.com)
+Intitle: Directs Google to search for a term within the title of a document (for example, intitle: “Index of /etc”)
+
+ntext:JSESSIONID OR intext:PHPSESSID inurl:access.log ext:log
+"public $user =" | "public $password = " | "public $secret =" | "public $db =" ext:txt | ext:log -git
+
+nmap:
+TCP Connect Scan (-sT)
+UDP Scan (-sU)
+TCP FIN Scan (-sF)
+Host Discovery Scan (-sn)
+Timing Options (-T 0-5)
+
+nmap --script smb-enum-users.nse <host>
+
+nmap --script smb-enum-groups.nse -p445 <host>
+
+nmap --script smb-enum-shares.nse -p 445 <host>
+
+enum4linux URL
+
+nmap -sV --script=http-enum <target>
+
