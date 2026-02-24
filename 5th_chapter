@@ -1,1 +1,99 @@
+NetBIOS Name Service and LLMNR
+NetBIOS and LLMNR are protocols that are used primarily by Microsoft Windows for host identification. LLMNR, which is based on the DNS protocol format, allows hosts on the same local link to perform name resolution for other hosts. 
+For example, a Windows host trying to communicate to a printer or to a network shared folder may use NetBIOS
+
+NetBIOS provides three different services:
+
+NetBIOS Name Service (NetBIOS-NS) for name registration and resolution
+Datagram Service (NetBIOS-DGM) for connectionless communication
+Session Service (NetBIOS-SSN) for connection-oriented communication
+
+NetBIOS-related operations use the following ports and protocols:
+
+TCP port 135: Microsoft Remote Procedure Call (MS-RPC) endpoint mapper, used for client-to-client and server-to-client communication
+UDP port 137: NetBIOS Name Service
+UDP port 138: NetBIOS Datagram Service
+TCP port 139: NetBIOS Session Service
+TCP port 445: SMB protocol, used for sharing files between different operating systems, including Windows and Unix-based systems
+
+Enum4linux is a tool for enumerating information from Windows and Samba. 
+Samba is an application that enables Linux and Apple clients to participate in Windows networks. It enables non-Windows clients to utilize the Server Message Block (SMB) protocol to access file and print services.
+
+Relative Identifier (RID): Uniquely identifies a user, group, system, or domain.
+Security Identifier (SID): Uniquely identifies users and groups within the local domain. Globally unique so can also work between domains.
+Domain Controller (DC): Domain controller is a server that manages network and identity security requests. It authenticates users and determines whether the users are allowed to access IT resources in the domain.
+Lightweight Directory Access Protocol (LDAP): a directory access protocol that enables services and clients that use LDAP naming services to communicate.
+
+Enum4linux:
+-U find configured users
+
+-S get a list of file shares
+
+-G get a list of the groups and their members
+
+-P list the password policies
+
+-i get a list of printers
+
+in the Enumerating Workgroup/Domain section of the output, enum4linux attempted to get the domain name using the command: nmblookup -A ‘172.17.0.2’.
+
+smbclient //172.17.0.2/tmp connecting to the tmp share
+
+You are working to exploit existing SMB vulnerabilities in the Pixel Perfect network, if any exist. What is the first step you will take when conducting an SMB attack in the network?
+Conduct a scan to discover if TCP ports 139 and 445 are open on any hosts in the network.
+
+DNS cache poisoning is another popular attack leveraged by threat actors. In short, DNS cache poisoning involves the manipulation of the DNS resolver cache through the injection of corrupted DNS data. 
+This is done to force the DNS server to send the wrong IP address to the victim and redirect the victim to the attacker’s system.
+
+TCP port 25: The default port used in SMTP for non-encrypted communications.
+TCP port 465: The port registered by the Internet Assigned Numbers Authority (IANA) for SMTP over SSL (SMTPS). SMTPS has been deprecated in favor of STARTTLS.
+TCP port 587: The Secure SMTP (SSMTP) protocol for encrypted communications, as defined in RFC 2487, using STARTTLS. Mail user agents (MUAs) use TCP port 587 for email submission. STARTTLS can also be used over TCP port 25 in some implementations.
+TCP port 110: The default port used by the POP3 protocol in non-encrypted communications.
+TCP port 995: The default port used by the POP3 protocol in encrypted communications.
+TCP port 143: The default port used by the IMAP protocol in non-encrypted communications.
+TCP port 993: The default port used by the IMAP protocol in encrypted (SSL/TLS) communications.
+
+SMTP commands:
+HELO: Used to initiate an SMTP conversation with an email server. The command is followed by an IP address or a domain name (for example, HELO 10.1.2.14 ).
+EHLO: Used to initiate a conversation with an Extended SMTP (ESMTP) server. This command is used in the same way as the HELO command.
+STARTTLS: Used to start a Transport Layer Security (TLS) connection to an email server.
+RCPT: Used to denote the email address of the recipient.
+DATA: Used to initiate the transfer of the contents of an email message.
+RSET: Used to reset (cancel) an email transaction.
+MAIL: Used to denote the email address of the sender.
+QUIT: Used to close a connection.
+HELP: Used to display a help menu (if available).
+AUTH: Used to authenticate a client to the server.
+VRFY: Used to verify whether a user’s email mailbox exists.
+EXPN: Used to request, or expand, a mailing list on the remote server.
+
+pass-the-hash: the attacker send all the hases from a database to the server to bypass it. so we wont need the original password...
+
+Kerberoasting is a post-exploitation activity that is used by an attacker to extract service account credential hashes from Active Directory for offline cracking.
+
+on-path attack =MITM
+
+Direct DoS Attacks (SYN flood attack)
+A direct DoS attack occurs when the source of the attack generates the packets, regardless of protocol, application, and so on, that are sent directly to the victim of the attack. Figure 5-7 illustrates a direct DoS attack.
+In Figure 5-7, the attacker launches a direct DoS attack to a web server (the victim) by sending numerous TCP SYN packets. This type of attack is aimed at flooding the victim with an overwhelming number of 
+packets in order to oversaturate its connection bandwidth or deplete the target’s system resources. This type of attack is also known as a SYN flood attack.
+Cybercriminals can also use DoS and DDoS attacks to produce added costs for the victim when the victim is using cloud services. In most cases, when you use a cloud service such as Amazon Web Services (AWS), 
+Microsoft Azure, or Digital Ocean, you pay per usage. Attackers can launch DDoS attacks to cause you to pay more for usage and resources.
+Another type of DoS attack involves exploiting vulnerabilities such as buffer overflows to cause a server or even a network infrastructure device to crash, subsequently causing a DoS condition
+
+Botnet
+Many attackers use botnets to launch DDoS attacks. A _botnet _is a collection of compromised machines that the attacker can manipulate from a command and control (CnC, or C2) system to participate in a DDoS attack, 
+send spam emails, and perform other illicit activities. Figure 5-8 shows how an attacker may use a botnet to launch a DDoS attack. The botnet is composed of compromised user endpoints (laptops), home wireless routers, 
+and Internet of Things (IoT) devices such as IP cameras.
+
+Reflected DoS and DDoS Attacks
+With reflected DoS and DDoS attacks, attackers send to sources spoofed packets that appear to be from the victim, and then the sources become unwitting participants in the reflected attack by sending the response traffic 
+back to the intended victim. UDP is often used as the transport mechanism in such attacks because it is more easily spoofed due to the lack of a three-way handshake. For example, if the attacker decides he wants to attack a victim, 
+he can send packets (for example, Network Time Protocol [NTP] requests) to a source that thinks these packets are legitimate. The source then responds to the NTP requests by sending the responses to the victim, 
+who was not expecting these NTP packets from the source.
+
+Amplification DDoS Attacks
+An amplification attack is a form of reflected DoS attack in which the response traffic (sent by the unwitting participant) is made up of packets that are much larger than those that were initially sent by the attacker 
+(spoofing the victim). An example of this type of attack is an attacker sending DNS queries to a DNS server configured as an open resolver. Then the DNS server (open resolver) replies with responses much larger in packet 
+size than the initial query packets. The end result is that the victim’s machine gets flooded by large packets for which it never actually issued queries
 
