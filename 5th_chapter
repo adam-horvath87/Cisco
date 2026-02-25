@@ -70,6 +70,10 @@ EXPN: Used to request, or expand, a mailing list on the remote server.
 pass-the-hash: the attacker send all the hases from a database to the server to bypass it. so we wont need the original password...
 
 Kerberoasting is a post-exploitation activity that is used by an attacker to extract service account credential hashes from Active Directory for offline cracking.
+silver ticket need:
+-system account
+-SID
+
 
 on-path attack =MITM
 
@@ -97,3 +101,19 @@ An amplification attack is a form of reflected DoS attack in which the response 
 (spoofing the victim). An example of this type of attack is an attacker sending DNS queries to a DNS server configured as an open resolver. Then the DNS server (open resolver) replies with responses much larger in packet 
 size than the initial query packets. The end result is that the victim’s machine gets flooded by large packets for which it never actually issued queries
 
+bind 9.5:
+-port randomization
+-DNSSEC
+-secure DNS data authentication
+
+UDP PORT 161 SNMP protocol
+
+mitigate ftp server:
+-Strong passwords - multi authentication
+-use encryption at rest
+-lock down administrator accounts
+-keep the ftps, sftp up to date
+-use fips 140-2
+-keep the back-end servers on a different server
+-disable anonymous
+-require re-authentication of inactice sessions
