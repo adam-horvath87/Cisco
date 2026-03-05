@@ -1,0 +1,69 @@
+Executive Summary
+A brief high-level summary describes the penetration test scope and major findings.
+
+Scope Details
+It is important to include a detailed definition of the scope of the network and systems tested as part of the engagement to distinguish between in-scope and out-of-scope systems or 
+segments and identify critical systems that are in or out of scope and explain why they are included in the test as targets.
+
+Methodology
+A report should provide details on the methodologies used to complete the testing (for example, port scanning, Nmap). You should also include details about the attack narrative. 
+
+Findings
+A report should document technical details about whether or how the system under testing and related components may be exploited based on each vulnerability found. 
+It is a good idea to use an industry-accepted risk ratings for each vulnerability, such as the Common Vulnerability Scoring System (CVSS).
+
+Remediation
+You should provide clear guidance on how to mitigate and remediate each vulnerability. 
+This information will be very useful for the IT technical staff, software developers, and security analysts who are trying to protect the organization (often referred to as the “blue team”).
+
+Conclusion
+The report must have a good summary of all the findings and recommendations.
+
+Appendix
+It is important to document any references and include a glossary of terms that the audience of the report may not be familiar with.
+
+Base metric group
+Includes exploitability metrics (for example, attack vector, attack complexity, privileges required, user interaction) and impact metrics (for example, confidentiality impact, integrity impact, availability impact).
+
+Temporal metric group
+Includes exploit code maturity, remediation level, and report confidence.
+
+Environmental metric group
+Includes modified base metrics, confidentiality, integrity, and availability requirements. CVSS includes different metrics and measures that describe the impact of each vulnerability
+
+System hardening
+System hardening involves applying security best practices, patches, and other configurations to remediate or mitigate the vulnerabilities found in systems and applications. 
+The system hardening process includes closing unnecessary open ports and services, removing unnecessary software, and disabling unused ports.
+
+Process-level remediation
+It is important to protect operating system (for example, Linux, Windows, iOS, Android) processes and make sure an attacker has not created or manipulated any processes in the underlying system.
+
+TEchnical controls:
+  -  system hardening
+  -  user input sanitization and query parameterization
+  -  multifactor authentication
+  -  process-level remediation
+  -  patch management
+  -  key rotation
+  -  certificate management
+  -  secrets management solution
+  -  network segmentation
+
+Administrative:
+  -  role-based access control
+  -  secure software development life cycle
+  -  minimum password requirements
+  -  policies and procedures
+
+Operational:
+  -  job rotation
+  -  time-of-day restrictions
+  -  mandatory vacations
+  -  user training
+
+Physical:
+  -  access control vestibule
+  -  biometric controls
+  -  video surveillance
+
+  
