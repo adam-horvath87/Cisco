@@ -1,0 +1,50 @@
+Netcat:
+
+nc -nv : connect to TCP port
+nc -lvp : listening on a given TCP port
+nc -lvp 1234 > output.txt or nc -lvp <IP> < output.txt  : trasfer a file
+nc -nv <IP> 80 GET / HTTP/1.1 : connecting and receiving a webpage (Port 443 for https)
+nc -z <IP> <port range> : port scanning
+
+socat
+A C2 utility that can be used to create multiple reverse shells
+
+wsc2
+A Python-based C2 utility that uses WebSockets
+
+WMImplant
+A PowerShell-based tool that leverages WMI to create a C2 channel 
+
+DropboxC2 (DBC2)
+A C2 utility that uses Dropbox
+
+TrevorC2
+A Python-based C2 utility created by Dave Kennedy of TrustedSec
+
+Twittor
+A C2 utility that uses Twitter direct messages for command and control 
+
+DNSCat2
+A DNS-based C2 utility that supports encryption and that has been used by malware, threat actors, and pen testers
+
+PowerSploit is a collection of PowerShell modules that can be used for post-exploitation and other phases of an assessment. 
+
+Empire, which is an open-source framework that includes a PowerShell Windows agent and a Python Linux agent. Empire implements the ability to run PowerShell agents without the need for powershell.exe. 
+
+BloodHound that uses graph theory to reveal the hidden relationships in a Windows Active Directory environment.You can also use BloodHound to find complex attack paths in Microsoft Azure.
+BloodHound is a JavaScript web application that uses graph theory to reveal the hidden relationships in a Windows Active Directory environment. An attacker can use BloodHound to identify numerous attack paths. 
+Similarly, incident response teams can use BloodHound to detect and eliminate those same attack paths.
+
+Sysinternals is a suite of tools that allows administrators to control Windows-based computers from a remote terminal.
+PsExec is one of the most powerful Sysinternals tools. You can use it to remotely execute anything that can run on a Windows command prompt. 
+
+ Enable-PSRemoting -SkipNetworkProfileCheck -Force
+This command configures the WinRM service to automatically start and sets up a firewall rule to allow inbound connections to the compromised system.
+
+Cleaning up:
+  -  Delete all user accounts used during the test.
+  -  Delete all files, executable binaries, scripts, and temporary files from compromised systems. A secure deletion method may be preferred. NIST Special Publication 800-88, 
+     Revision 1: “Guidelines for Media Sanitization,” provides guidance for media sanitation. This methodology should be discussed with your client and the owner of the affected systems.
+  -  Return any modified systems and their configuration to their original values and parameters.
+  -  Remove all backdoors, daemons, services, and rootkits installed.
+  -  Remove all customer data from your systems, including attacking systems and any other support systems. Typically, you should do this after creating and delivering the penetration testing report to the client.ű
