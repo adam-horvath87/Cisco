@@ -1,1 +1,21 @@
+VM escape vulnerabilities: These vulnerabilities allow an attacker to “escape” the VM and obtain access to other virtual machines on the system or access to the hypervisor
+
+Hyperjacking is a vulnerability that could allow an attacker to control the hypervisor.
+
+VM repository vulnerabilities: Attackers can leverage these vulnerabilities to compromise many systems and applications. 
+
+Anchore’s Grype
+Grype is an open-source container vulnerability scanner 
+
+Clair
+Clair is another open-source container vulnerability scanner.
+
+Dagda
+This set of open-source static analysis tools can help detect vulnerabilities, Trojans, backdoors, and malware in Docker images and containers. It uses the ClamAV antivirus engine to detect malware and vulnerabilities.
+
+kube-bench
+This open-source tool performs a security assessment of Kubernetes clusters based on the CIS Kubernetes Benchmark
+
+kube-hunter
+This open-source tool is designed to check the security posture of Kubernetes clusters
 
