@@ -1,0 +1,221 @@
+Scripting
+
+Loops: for/while
+Conditional: if/else/elif
+Boolean: And/or/not/And not
+String: numbers, words etc.
+Arithmetic operators:+,-,*,/, %, ==, !=, <>, <=, >=
+
+JavaScript Object Notation (JSON): JSON is a lightweight format for storing and transporting data that is easy to understand
+Arrays: An array is a special variable that holds more than one value at a time.
+Dictionaries: A dictionary is a collection of data values that are ordered using a key/value pair. The following is an example of a dictionary in Python:
+  dict = {'Name': 'Omar Santos', 'Twitter': '@santosomar'}
+Comma-separated values (CSV): A CSV file is a plaintext file that contains data delimited by commas (,) and sometimes tabs or other characters, like semicolons (;).
+Lists: A list is a data structure in programming languages that contains an ordered structure of elements. The following is an example of a list in Python:
+  cves = ['CVE-2022-0945', 'CVE-2023-1234’, 'CVE-2022-0987']
+Trees: A tree is a non-linear data structure represented using nodes in a hierarchical model. 
+
+A library is a collection of resources that can be reused by programs. Libraries can include the following:
+  -  Prewritten code
+  -  Configuration information
+  -  Subroutines
+  -  Documentation and help information
+  -  Message templates
+  -  Classes
+
+A procedure is a section of code that is created to perform a specific task. A procedure can be used several times throughout a program. Procedures can make code simpler and more concise.
+
+A function is a block of code that is very useful when you need to execute similar tasks over and over. A function runs only when it is called.
+
+A class is a code template that can be used to create different objects. It provides initial values for member variables and functions or methods.
+
+Python, ruby, powershell, perl, javascript
+
+Nslookup
+Host
+Dig
+whois
+
+FOCA
+Fingerprinting Organization with Collected Archives (FOCA) is a tool designed to find metadata and hidden information in documents.
+It analyzes websites and Microsoft Office, Open Office, PDF, and other documents by extracting file metadata and EXIF 
+(exchangeable image file format) information from files that it discovers through scans of a supplied URL.
+
+ExifTool
+ExifTool is a popular tool for extracting EXIF information from images.
+
+theHarvester
+theHarvester is a tool that can be used to enumerate DNS information about a given hostname or IP address.
+
+Shodan
+Shodan is a search engine for devices connected to the Internet. Shodan continuously scans the Internet and exposes its results to users via its website (https:// www.shodan.io) and via an API.
+
+Maltego
+Maltego, which gathers information from public records, is one of the most popular tools for passive reconnaissance. It supports numerous third-party integrations. 
+There are several versions of Maltego, including a community edition (which is free) and several commercial Maltego client and server options.
+
+Recon-ng
+Recon-ng is a menu-based tool that can be used to automate the information gathering of OSINT.  Recon-ng comes with specific modules that can be used to perform detailed searches of public records, 
+interesting files, DNS records, and so on.
+
+Censys
+Censys, a tool developed by researchers at the University of Michigan, can be used for passive reconnaissance to find information about devices and networks on the Internet. 
+
+Enum4linux
+Enum4linux is a great tool for enumerating SMB shares, vulnerable Samba implementations, and corresponding users.
+
+The following are some of the most popular vulnerability scanners:
+
+OpenVAS
+OpenVAS is an open-source vulnerability scanner that was created by Greenbone Networks. The OpenVAS framework includes several services and tools that enable you to perform detailed vulnerability 
+scanning against hosts and networks.
+
+Nessus
+The Nessus scanner from Tenable has several features that allow you to perform continuous monitoring and compliance analysis.
+
+Nexpose
+Nexpose is a vulnerability scanner created by Rapid7 that is very popular among professional penetration testers. It supports integrations with other security products.
+
+Qualys
+Qualys is a security company that created one of the most popular vulnerability scanners in the industry. It also has a cloud-based service that performs continuous monitoring, vulnerability management, 
+and compliance checking. This cloud solution interacts with cloud agents, virtual scanners, scanner appliances, and Internet scanners.
+
+SQLmap
+SQLmap is often considered a web vulnerability and SQL injection tool. It helps automate the enumeration of vulnerable applications, as well as the exploitation of SQL injection techniques
+
+Nikto
+
+OWASP Zed Attack Proxy (ZAP)
+
+w3af
+The w3af tool has a plugins menu that allows you to configure and enable mangle, crawl, bruteforce, audit, and other plugins.
+
+DirBuster
+DirBuster is a tool that was designed to brute force directory names and filenames on web application servers.
+
+Brakeman
+
+Open Security Content Automation Protocol (SCAP) scanners
+
+Wapiti
+
+Scout Suite
+Scout Suite is a vulnerability scanner designed to assess the security posture of cloud environments.
+
+WPScan (Wordpress scanner)
+
+
+John the Ripper
+John the Ripper is a very popular tool for offline password cracking. John the Ripper (or john for short) can use search patterns as well as password files (or wordlists) to crack passwords.
+
+Cain and Abel
+Cain (or Cain and Abel) is a tool that can be used to “recover” passwords of Windows-based systems. Cain and Abel can be used to decipher and recover user credentials by performing packet 
+captures (sniffing); cracking encrypted passwords by using dictionary, brute-force, and cryptanalysis attacks; and using many other techniques. 
+
+Hashcat
+Hashcat is another password-cracking tool that is very popular among pen testers. It allows you to use graphical processing units (GPUs) to accelerate the password-cracking process.
+
+Hydra
+Hydra is another tool that can be used to guess and crack credentials. Hydra is typically used to interact with a victim server (for example, web server, FTP server, SSH server, file server) 
+and try a list of username/password combinations. For example, say you know that an FTP user’s username is omar.
+
+RainbowCrack
+Attackers can use rainbow tables – precomputed tables for reversing cryptographic hash functions – to accelerate password cracking. It is possible to use a rainbow table to derive a password by looking at the hashed value. 
+The tool RainbowCrack can be used to automate the cracking of passwords using rainbow tables.
+
+Medusa and Ncrack
+The Medusa and Ncrack tools, which are similar to Hydra, can be used to perform brute-force credential attacks against a system.
+
+CeWL
+CeWL is a great tool that can be used to create wordlists. You can use CeWL to crawl websites and retrieve words.
+
+Mimikatz
+Mimikatz is a tool that many penetration testers and attackers (and even malware) use for retrieving password hashes from memory. It is also a useful post-exploitation tool. 
+
+Patator
+Patator is another tool that can be used for brute-force attacks on enumerations of SNMPv3 usernames, VPN passwords, and other types of credential attacks. 
+
+Several tools and techniques can be used for evasion, including the following:
+Veil
+Veil is a framework that can be used with Metasploit to evade antivirus checks and other security controls.
+
+Tor
+
+Proxychains
+Proxychains can be used for evasion, as it is a tool that forces any TCP connection made by a specified application to use Tor or any other SOCKS4, SOCKS5, HTTP, or HTTPS proxy.
+
+Encryption
+
+Encapsulation and tunneling using DNS and protocols such as NTP
+
+The GNU Project Debugger (GDB)
+The GNU Project Debugger (GDB) is one of the most popular debuggers among software developers and security professionals. With a debugger like GDB, you can troubleshoot and find software bugs, 
+understand what a program was doing at the moment it crashed, make a program stop on specified conditions, and modify elements of a program to experiment or to correct problems.
+
+Windows Debugger
+You can use the Windows Debugger (WinDbg) to debug kernel and user mode code. You can also use it to analyze crash dumps and to analyze the CPU registers as code executes. 
+
+OllyDbg
+OllyDbg is a debugger created to analyze Windows 32-bit applications.
+
+edb Debugger
+The edb debugger (often called Evan’s debugger) is a cross-platform debugger that supports AArch32, x86, and x86-64 architectures. 
+
+Ghidra
+Ghidra is a powerful and free tool popular among security researchers for reverse engineering and binary analysis. Developed by the NSA, 
+Ghidra provides comprehensive capabilities for dissecting and understanding complex software, including malware analysis and vulnerability research.
+
+Interactive Disassembler (IDA)
+Interactive Disassembler (IDA) is one of the most popular disassemblers, debuggers, and decompilers on the market. 
+
+Objdump
+Objdump is a Linux program that can be used to display information about one or more object files. You can use Objdump to do quick checks and disassembly of binaries
+
+ADIA (Appliance for Digital Investigation and Analysis): ADIA is a VMware-based appliance used for digital investigation and acquisition that is built entirely from public domain software. 
+Among the tools contained in ADIA are Autopsy, the Sleuth Kit, the Digital Forensics Framework, log2timeline, Xplico, and Wireshark. Most of the system maintenance uses Webmin. 
+ADIA is designed for small to medium-sized digital investigations and acquisitions. 
+
+CAINE: The Computer Aided Investigative Environment (CAINE) contains numerous tools that help investigators with analyses, including forensic evidence collection.
+
+Skadi: This all-in-one solution to parsing collected data makes the data easily searchable with built-in common searches and enables searching of single and multiple hosts simultaneously.
+
+PALADIN: PALADIN is a modified Linux distribution for performing various evidence collection tasks in a forensically sound manner. It includes many open source forensics tools. 
+
+Security Onion: Security Onion, a Linux distro aimed at network security monitoring, features advanced analysis tools, some of which can help in forensic investigations. 
+
+SIFT Workstation: The SANS Investigative Forensic Toolkit (SIFT) Workstation demonstrates that advanced incident response capabilities and deep-dive digital forensic 
+techniques to intrusions can be accomplished using cutting-edge open source tools that are freely available and frequently updated. 
+
+Rogue access points: You can easily create rogue access points by using open-source tools such as hostapd.
+
+EAPHammer: This tool, which you can use to perform evil twin attacks
+
+mdk4: This tool is used to perform fuzzing, IDS evasions, and other wireless attacks
+
+Spooftooph: This tool is used to spoof and clone Bluetooth devices.
+
+Reaver: This tool is used to perform brute-force attacks against Wi-Fi Protected Setup (WPS) implementations.
+
+Wireless Geographic Logging Engine (WiGLE):war driving tool 
+
+Fern Wi-Fi Cracker: This tool is used to perform different attacks against wireless networks, including cracking WEP, WPA, and WPS keys.
+
+OpenStego: steganography tool
+
+snow: This is a text-based steganography tool 
+
+Coagula: This program, which can be used to make sound from an image
+
+Sonic Visualiser: This tool can be used to analyze embedded information in music or audio recordings
+
+TinEye: This is a reverse image search website 
+
+metagoofil: This tool can be used to extract metadata information from documents and images. 
+
+ScoutSuite: This collection of tools can be used to reveal vulnerabilities in AWS, Azure, Google Cloud Platform, and other cloud platforms
+
+CloudBrute: cloud enumeration tool 
+
+Pacu: This is a framework for AWS exploitation
+
+Cloud Custodian: This cloud security, governance, and management tool 
